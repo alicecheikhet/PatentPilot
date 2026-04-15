@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PatentPilot — Patent Sheet Database</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div>
+          <h1>PatentPilot</h1>
+          <p>Inventor-side patent planning and drafting workspace</p>
+        </div>
+      </div>
+      <nav class="nav"><a href="index.html" class="">Dashboard</a>
+<a href="workspace.html" class="">Idea Studio</a>
+<a href="claims.html" class="">Claim Architect</a>
+<a href="novelty.html" class="">Novelty Radar</a>
+<a href="strategy.html" class="">Filing Strategy</a>
+<a href="database.html" class="active">Patent Sheet DB</a>
+<a href="about.html" class="">About</a></nav>
+    </div>
+  </header>
+  
+<section class="hero">
+  <div class="container">
+    <div class="card soft">
+      <h2>Patent Sheet Database</h2>
+      <p>Keep your editable comparison set here. Update it whenever you discover a new comparator, prior design, or adjacent product concept.</p>
+      <div class="hero-badges">
+        <span class="badge">Editable JSON</span>
+        <span class="badge">Local persistence</span>
+        <span class="badge">Import / export</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container stack">
+  <div class="grid-2">
+    <div class="card">
+      <div class="section-title">
+        <div><h3>Database overview</h3><p><span id="dbCount">0</span> entries loaded</p></div>
+        <div class="actions">
+          <button class="btn btn-primary" onclick="PP.saveDatabaseFromEditor()">Save</button>
+          <button class="btn btn-secondary" onclick="PP.downloadDatabase()">Export JSON</button>
+          <button class="btn btn-danger" onclick="PP.resetDatabase()">Reset</button>
+        </div>
+      </div>
+      <div class="field">
+        <label for="dbEditor">Database editor</label>
+        <textarea id="dbEditor" style="min-height:360px"></textarea>
+      </div>
+      <div class="actions" style="margin-top:12px">
+        <label class="btn btn-accent" for="dbFile">Import JSON</label>
+        <input id="dbFile" type="file" accept=".json,application/json" class="hidden" onchange="PP.importDatabaseFile(this)">
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">
+        <div><h3>Current entries</h3><p>Used during comparison mapping.</p></div>
+      </div>
+      <table class="table">
+        <thead><tr><th>ID</th><th>Title</th><th>Domain</th><th>Features</th></tr></thead>
+        <tbody id="dbBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+  <div class="footer">
+    <div class="container">PatentPilot is an inventor workflow and drafting aid. It helps organize ideas, compare features, and plan filing strategy.</div>
+  </div>
+  <script src="assets/app.js"></script>
+  <script>bootPage("database")</script>
+</body>
+</html>

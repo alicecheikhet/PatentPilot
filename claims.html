@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PatentPilot — Claim Architect</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div>
+          <h1>PatentPilot</h1>
+          <p>Inventor-side patent planning and drafting workspace</p>
+        </div>
+      </div>
+      <nav class="nav"><a href="index.html" class="">Dashboard</a>
+<a href="workspace.html" class="">Idea Studio</a>
+<a href="claims.html" class="active">Claim Architect</a>
+<a href="novelty.html" class="">Novelty Radar</a>
+<a href="strategy.html" class="">Filing Strategy</a>
+<a href="database.html" class="">Patent Sheet DB</a>
+<a href="about.html" class="">About</a></nav>
+    </div>
+  </header>
+  
+<section class="hero">
+  <div class="container">
+    <div class="card soft">
+      <h2>Claim Architect</h2>
+      <p>See how the parsed claim limitations line up against your comparison set and generate a stronger claim scaffold for inventor-side drafting.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container stack">
+  <div id="architectEmpty" class="card">
+    <div class="note">No analyzed matter yet. Go to Idea Studio, enter your material, and click <strong>Run Analysis</strong>.</div>
+  </div>
+
+  <div id="architectContent" class="hidden stack">
+    <div class="card">
+      <div class="section-title"><div><h3>Limitation comparison chart</h3><p>Mapped against entered references and the patent sheet database.</p></div></div>
+      <table class="table">
+        <thead>
+          <tr><th>Claim</th><th>Limitation</th><th>Mapped references</th><th>Status</th></tr>
+        </thead>
+        <tbody id="claimChartBody"></tbody>
+      </table>
+    </div>
+    <div class="card">
+      <div class="section-title">
+        <div><h3>Claim scaffold</h3><p>A revised structure based on the current matter and less-shared elements.</p></div>
+      </div>
+      <pre class="code" id="claimScaffold"></pre>
+    </div>
+  </div>
+</section>
+
+  <div class="footer">
+    <div class="container">PatentPilot is an inventor workflow and drafting aid. It helps organize ideas, compare features, and plan filing strategy.</div>
+  </div>
+  <script src="assets/app.js"></script>
+  <script>bootPage("claims")</script>
+</body>
+</html>

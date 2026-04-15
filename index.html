@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PatentPilot — Dashboard</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div>
+          <h1>PatentPilot</h1>
+          <p>Inventor-side patent planning and drafting workspace</p>
+        </div>
+      </div>
+      <nav class="nav"><a href="index.html" class="active">Dashboard</a>
+<a href="workspace.html" class="">Idea Studio</a>
+<a href="claims.html" class="">Claim Architect</a>
+<a href="novelty.html" class="">Novelty Radar</a>
+<a href="strategy.html" class="">Filing Strategy</a>
+<a href="database.html" class="">Patent Sheet DB</a>
+<a href="about.html" class="">About</a></nav>
+    </div>
+  </header>
+  
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="card soft">
+      <h2>Shape raw invention ideas into a filing-ready strategy.</h2>
+      <p>PatentPilot is built for the inventor side of patent work: define the problem, pressure-test novelty, compare feature overlap, scaffold claims, and plan your next filing move. It starts blank by design. Load a sample only if you want a demo.</p>
+      <div class="hero-badges">
+        <span class="badge">Idea shaping</span>
+        <span class="badge">Claim scaffolding</span>
+        <span class="badge">Novelty pressure</span>
+        <span class="badge">Patent sheet database</span>
+      </div>
+      <div class="actions" style="margin-top:18px">
+        <a class="btn btn-primary" href="workspace.html">Open Idea Studio</a>
+        <button class="btn btn-secondary" onclick="PP.loadSampleMatter()">Load Sample Matter</button>
+        <button class="btn btn-accent" onclick="PP.runAnalysis()">Run Analysis</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="orbit">
+        <div class="orbit-ring r1"></div>
+        <div class="orbit-ring r2"></div>
+        <div class="orbit-ring r3"></div>
+        <div class="core">Inventor</div>
+        <div class="node n1">Idea framing</div>
+        <div class="node n2">Claim shape</div>
+        <div class="node n3">Comparison map</div>
+        <div class="node n4">Filing path</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container dashboard-grid">
+  <div class="stack">
+    <div id="emptyState" class="card">
+      <div class="section-title">
+        <div>
+          <h3>No matter loaded yet</h3>
+          <p>Start with your own invention details, or use the sample to test the system.</p>
+        </div>
+      </div>
+      <div class="note">Nothing is preloaded. Go to Idea Studio, enter your matter, then click <strong>Run Analysis</strong>. Or click <strong>Load Sample Matter</strong> first.</div>
+    </div>
+
+    <div id="resultState" class="hidden stack">
+      <div class="card">
+        <div class="section-title">
+          <div>
+            <h3>Matter snapshot</h3>
+            <p id="matterTitle">Untitled matter</p>
+          </div>
+          <div class="actions">
+            <button class="btn btn-secondary" onclick="PP.exportMatterJSON()">Export JSON</button>
+            <button class="btn btn-accent" onclick="PP.exportStrategyTXT()">Export memo</button>
+          </div>
+        </div>
+        <div class="dashboard-grid" style="grid-template-columns:.9fr 1.1fr">
+          <div class="center">
+            <div class="ring" id="scoreRing">
+              <div class="ring-center">
+                <div class="score" id="ringScore">0</div>
+                <div class="sub">readiness</div>
+              </div>
+            </div>
+          </div>
+          <div class="stack">
+            <div class="kv"><div class="k">Domain</div><div id="domainValue">—</div></div>
+            <div class="kv"><div class="k">Parsed claims</div><div id="claimsValue">0</div></div>
+            <div class="kv"><div class="k">Comparison references</div><div id="refsValue">0</div></div>
+            <div class="bar-group">
+              <div class="metric">
+                <div class="metric-head"><span>Novelty pressure</span><span id="noveltyValue">0</span></div>
+                <div class="track"><div class="fill" id="barNovelty"></div></div>
+              </div>
+              <div class="metric">
+                <div class="metric-head"><span>Claim clarity</span><span id="clarityValue">0</span></div>
+                <div class="track"><div class="fill" id="barClarity"></div></div>
+              </div>
+              <div class="metric">
+                <div class="metric-head"><span>Filing strategy strength</span><span id="strategyValue">0</span></div>
+                <div class="track"><div class="fill" id="barStrategy"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <div>
+            <h3>Action recommendations</h3>
+            <p>Use these to improve the matter before drafting.</p>
+          </div>
+        </div>
+        <ul class="list" id="recommendationsList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="stack">
+    <div class="card">
+      <div class="section-title">
+        <div>
+          <h3>Strong differentiators</h3>
+          <p>Lower-shared or strategically useful elements.</p>
+        </div>
+      </div>
+      <ul class="list" id="strongestList">
+        <li>Run an analysis to populate this panel.</li>
+      </ul>
+    </div>
+
+    <div id="similarityCard" class="card hidden">
+      <div class="section-title">
+        <div>
+          <h3>Top similar patents</h3>
+          <p>Ranked comparison against the patent sheet database.</p>
+        </div>
+      </div>
+      <table class="table">
+        <thead><tr><th>Rank</th><th>Patent</th><th>Similarity</th><th>Link</th></tr></thead>
+        <tbody id="similarityList"></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="section-title">
+        <div>
+          <h3>Navigation</h3>
+          <p>Each page serves a different part of the inventor workflow.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <a class="stat" href="workspace.html"><div class="label">Idea Studio</div><div class="value">01</div><div class="small">Enter or revise your matter.</div></a>
+        <a class="stat" href="claims.html"><div class="label">Claim Architect</div><div class="value">02</div><div class="small">See the chart and scaffold claims.</div></a>
+        <a class="stat" href="novelty.html"><div class="label">Novelty Radar</div><div class="value">03</div><div class="small">Review overlap and less-shared features.</div></a>
+        <a class="stat" href="strategy.html"><div class="label">Filing Strategy</div><div class="value">04</div><div class="small">Get the next-step memo.</div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <div class="footer">
+    <div class="container">PatentPilot is an inventor workflow and drafting aid. It helps organize ideas, compare features, and plan filing strategy.</div>
+  </div>
+  <script src="assets/app.js"></script>
+  <script>bootPage("dashboard")</script>
+</body>
+</html>

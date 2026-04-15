@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PatentPilot — Idea Studio</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div>
+          <h1>PatentPilot</h1>
+          <p>Inventor-side patent planning and drafting workspace</p>
+        </div>
+      </div>
+      <nav class="nav"><a href="index.html" class="">Dashboard</a>
+<a href="workspace.html" class="active">Idea Studio</a>
+<a href="claims.html" class="">Claim Architect</a>
+<a href="novelty.html" class="">Novelty Radar</a>
+<a href="strategy.html" class="">Filing Strategy</a>
+<a href="database.html" class="">Patent Sheet DB</a>
+<a href="about.html" class="">About</a></nav>
+    </div>
+  </header>
+  
+<section class="hero">
+  <div class="container">
+    <div class="card soft">
+      <h2>Idea Studio</h2>
+      <p>Build the matter from scratch. This page intentionally starts empty. Nothing loads unless you type it in or click the sample button.</p>
+      <div class="actions" style="margin-top:18px">
+        <button class="btn btn-secondary" onclick="PP.loadSampleMatter()">Load Sample Matter</button>
+        <button class="btn btn-primary" onclick="PP.saveCurrentMatter()">Save Matter</button>
+        <button class="btn btn-accent" onclick="PP.runAnalysis()">Run Analysis</button>
+        <button class="btn btn-danger" onclick="PP.resetWorkspace()">Clear</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container stack">
+  <div class="card">
+    <div class="grid-2">
+      <div class="field">
+        <label for="matterName">Matter name</label>
+        <input id="matterName" type="text" placeholder="Ex: Adaptive Enzyme Preservation System">
+      </div>
+      <div class="field">
+        <label for="domain">Technology domain</label>
+        <input id="domain" type="text" placeholder="Ex: Biochemistry">
+      </div>
+    </div>
+    <div class="grid-2" style="margin-top:16px">
+      <div class="field">
+        <label for="summary">Invention summary</label>
+        <textarea id="summary" placeholder="Describe what the invention does and how it works."></textarea>
+      </div>
+      <div class="field">
+        <label for="problem">Technical problem solved</label>
+        <textarea id="problem" placeholder="What technical bottleneck does this solve?"></textarea>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-top:16px">
+      <div class="field">
+        <label for="noveltyFocus">Key differentiators</label>
+        <textarea id="noveltyFocus" placeholder="List the features you think are new, separated by commas or lines."></textarea>
+      </div>
+      <div class="field">
+        <label for="inventorGoals">Inventor goals</label>
+        <textarea id="inventorGoals" placeholder="What do you want out of this filing? Broad protection, fast provisional, investor pitch support, etc."></textarea>
+      </div>
+    </div>
+    <div class="field" style="margin-top:16px">
+      <label for="claimText">Draft claim text</label>
+      <textarea id="claimText" style="min-height:170px" placeholder="Paste one or more draft claims here. Numbered claims work best."></textarea>
+    </div>
+    <div class="field" style="margin-top:16px">
+      <label for="referencesText">Comparison references</label>
+      <textarea id="referencesText" style="min-height:170px" placeholder="Paste known references or comparator products. Example: Reference A: smart cartridge. Features: sensor, compartment, automatic release."></textarea>
+      <div class="small">These can be rough notes. PatentPilot uses them to stress-test overlap and strategy.</div>
+    </div>
+  </div>
+</section>
+
+  <div class="footer">
+    <div class="container">PatentPilot is an inventor workflow and drafting aid. It helps organize ideas, compare features, and plan filing strategy.</div>
+  </div>
+  <script src="assets/app.js"></script>
+  <script>bootPage("workspace")</script>
+</body>
+</html>

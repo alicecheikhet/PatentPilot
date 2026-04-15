@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PatentPilot — Filing Strategy</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div>
+          <h1>PatentPilot</h1>
+          <p>Inventor-side patent planning and drafting workspace</p>
+        </div>
+      </div>
+      <nav class="nav"><a href="index.html" class="">Dashboard</a>
+<a href="workspace.html" class="">Idea Studio</a>
+<a href="claims.html" class="">Claim Architect</a>
+<a href="novelty.html" class="">Novelty Radar</a>
+<a href="strategy.html" class="active">Filing Strategy</a>
+<a href="database.html" class="">Patent Sheet DB</a>
+<a href="about.html" class="">About</a></nav>
+    </div>
+  </header>
+  
+<section class="hero">
+  <div class="container">
+    <div class="card soft">
+      <h2>Filing Strategy</h2>
+      <p>Turn the current matter into a practical inventor memo with drafting priorities, risk signals, and next steps.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container stack">
+  <div id="strategyEmpty" class="card">
+    <div class="note">No analyzed matter yet. Run analysis from Idea Studio to generate the strategy memo.</div>
+  </div>
+  <div id="strategyContent" class="hidden card">
+    <div class="section-title">
+      <div><h3>Strategy memo</h3><p>Export it from the Dashboard after running analysis.</p></div>
+    </div>
+    <pre class="code" id="strategyMemo"></pre>
+  </div>
+</section>
+
+  <div class="footer">
+    <div class="container">PatentPilot is an inventor workflow and drafting aid. It helps organize ideas, compare features, and plan filing strategy.</div>
+  </div>
+  <script src="assets/app.js"></script>
+  <script>bootPage("strategy")</script>
+</body>
+</html>

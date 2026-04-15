@@ -1,0 +1,47 @@
+[
+  {
+    "id": "PP-001",
+    "title": "Microfluidic reagent cartridge",
+    "domain": "Biochemistry",
+    "problem": "Contamination during small-volume reagent mixing.",
+    "features": [
+      "sealed cartridge",
+      "two-stage mixing path",
+      "calibration channel",
+      "disposable insert"
+    ],
+    "notes": "Useful comparator for lab automation and sample prep.",
+    "patentNumber": "US11033905B2",
+    "patentUrl": "https://patents.google.com/patent/US11033905B2/en"
+  },
+  {
+    "id": "PP-002",
+    "title": "Wearable hydration biosensor patch",
+    "domain": "Biotech",
+    "problem": "Noninvasive electrolyte and hydration tracking.",
+    "features": [
+      "skin patch",
+      "electrochemical sensor",
+      "wireless output",
+      "adaptive calibration"
+    ],
+    "notes": "Useful for biosensing and wearable health inventions.",
+    "patentNumber": "WO2021216614A1",
+    "patentUrl": "https://patents.google.com/patent/WO2021216614A1/en"
+  },
+  {
+    "id": "PP-003",
+    "title": "Enzyme-stabilizing storage matrix",
+    "domain": "Chemistry",
+    "problem": "Activity loss during room-temperature storage.",
+    "features": [
+      "polymer matrix",
+      "lyophilized enzyme",
+      "buffer reservoir",
+      "humidity barrier"
+    ],
+    "notes": "Good comparator for formulation and storage inventions.",
+    "patentNumber": "US20240167014A1",
+    "patentUrl": "https://patents.google.com/patent/US20240167014A1/en"
+  }
+]
